@@ -71,7 +71,7 @@ depend on jQuery
 </script>
 ```
 
-```
+```javascript
 var slider = new SliderUnlock(element, options, success, always);
 slider.init();
 ```
