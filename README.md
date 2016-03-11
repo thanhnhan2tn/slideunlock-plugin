@@ -77,5 +77,5 @@ slider.init();
 ```
 
 ## Demo
-<p data-height="268" data-theme-id="0" data-slug-hash="bpeoEp" data-default-tab="result" data-user="ArronYR" class="codepen">See the Pen <a href="http://codepen.io/ArronYR/pen/bpeoEp/">jquery-slide-unlock</a> by Arron.y (<a href="http://codepen.io/ArronYR">@ArronYR</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<iframe height='268' scrolling='no' src='//codepen.io/ArronYR/embed/bpeoEp/?height=268&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/ArronYR/pen/bpeoEp/'>jquery-slide-unlock</a> by Arron.y (<a href='http://codepen.io/ArronYR'>@ArronYR</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
