@@ -95,7 +95,7 @@ SliderUnlock.prototype.handerOut = function () {
     _self.swipestart = false;
     //_self.move();
     if (_self.index < _self.max) {
-        _self.resetIndex();
+        _self.reset();
     }
 }
 
@@ -137,7 +137,7 @@ SliderUnlock.prototype.move = function () {
 }
 
 // 重置slide的起点
-SliderUnlock.prototype.resetIndex = function () {
+SliderUnlock.prototype.reset = function () {
     var _self = this;
 
     _self.index = 0;
