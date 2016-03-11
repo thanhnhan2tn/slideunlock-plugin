@@ -1,7 +1,7 @@
 # jquery-slideunlock-plugin
 
 ## html
-```
+```html
 <div id="slide-wrapper">
     <input type="hidden" value="" id="lockable"/>
     <div id="slider">
@@ -12,7 +12,7 @@
 ```
 
 ## css
-```
+```css
 #slide-wrapper{
     width: 360px;
     position: relative;
@@ -48,7 +48,7 @@
 
 ## JavaScript
 depend on jQuery
-```
+```javascript
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.slideunlock.min.js"></script>
 <script type="text/javascript">
