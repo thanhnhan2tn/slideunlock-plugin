@@ -76,6 +76,11 @@ var slider = new SliderUnlock(element, options, success, always);
 slider.init();
 ```
 
+*如果需要支持移动端，请引入`jQuery mobile`*
+```
+<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+```
+
 ## Demo
 <p data-height="268" data-theme-id="0" data-slug-hash="bpeoEp" data-default-tab="result" data-user="ArronYR" class="codepen">See the Pen <a href="http://codepen.io/ArronYR/pen/bpeoEp/">jquery-slide-unlock</a> by Arron.y (<a href="http://codepen.io/ArronYR">@ArronYR</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
