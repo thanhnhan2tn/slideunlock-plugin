@@ -8,21 +8,26 @@
 'use strict'
 
 // 滑动条对象
-function SliderUnlock(elm, options, success, callback) {
+function SliderUnlock(elm, options, success, always) {
     var _self = this;
 
     var $elm = _self.checkElm(elm) ? $(elm) : $;
+    var options = _self.checkObj(options) ? options : new Object();
+    var success = _self.checkFn(success) ? success : function(){};
+    var always = _self.checkFn(always) ? always : function(){};
+
     var opts = {
-        labelTip: options.labelTip!=='undefined' ? options.labelTip : "Slide to Unlock",
-        successLabelTip: options.successLabelTip!=='undefined' ? options.successLabelTip : "Success",
-        duration: options.duration!=='undefined'||!isNaN(options.duration) ? options.duration : 200,
-        swipestart: options.swipestart!=='undefined' ? options.swipestart : false,
-        min: options.min!=='undefined'||!isNaN(options.min) ? options.min : 0,
-        max: options.max!=='undefined'||!isNaN(options.max) ? options.max : $elm.width(),
-        index: options.index!=='undefined'||!isNaN(options.index) ? options.index : 0,
-        IsOk: options.isOk!=='undefined' ? options.isOk : false,
-        lableIndex: options.lableIndex!=='undefined'||!isNaN(options.lableIndex) ? options.lableIndex : 0
+        labelTip: typeof(options.labelTip)!=="undefined" ? "options.labelTip" : "Slide to Unlock",
+        successLabelTip: typeof(options.successLabelTip)!=='undefined' ? options.successLabelTip : "Success",
+        duration: typeof(options.duration)!=='undefined'||!isNaN(options.duration) ? options.duration : 200,
+        swipestart: typeof(options.swipestart)!=='undefined' ? options.swipestart : false,
+        min: typeof(options.min)!=='undefined'||!isNaN(options.min) ? options.min : 0,
+        max: typeof(options.max)!=='undefined'||!isNaN(options.max) ? options.max : $elm.width(),
+        index: typeof(options.index)!=='undefined'||!isNaN(options.index) ? options.index : 0,
+        IsOk: typeof(options.isOk)!=='undefined' ? options.isOk : false,
+        lableIndex: typeof(options.lableIndex)!=='undefined'||!isNaN(options.lableIndex) ? options.lableIndex : 0
     }
+
     //$elm
     _self.elm = $elm;
     //opts
@@ -41,8 +46,8 @@ function SliderUnlock(elm, options, success, callback) {
     _self.lableIndex = opts.lableIndex;
     //success
     _self.success = success;
-    //callback
-    _self.callback = callback;
+    //always
+    _self.always = always;
 }
 
 // 检测元素是否存在
@@ -50,7 +55,25 @@ SliderUnlock.prototype.checkElm = function (elm) {
     if($(elm).length > 0){
         return true;
     }else{
-        throw "元素不存在！";
+        throw "this element does not exist.";
+    }
+};
+
+// 检测传入参数是否是对象
+SliderUnlock.prototype.checkObj = function (obj) {
+    if(typeof obj === "object"){
+        return true;
+    }else{
+        throw "the params is not a object.";
+    }
+};
+
+// 检测传入参数是否是对象
+SliderUnlock.prototype.checkFn = function (fn) {
+    if(typeof fn === "function"){
+        return true;
+    }else{
+        throw "the param is not a function.";
     }
 };
 
@@ -170,7 +193,7 @@ SliderUnlock.prototype.updateView = function () {
         $("#lockable").val(0);
         _self.elm.removeClass("success").find("#lableTip").html(_self.opts.labelTip);
     }
-    _self.callback();
+    _self.always();
 }
 
 // TODO

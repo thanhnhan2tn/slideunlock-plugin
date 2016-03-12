@@ -44,6 +44,11 @@
 #labelTip{
     z-index: 9;
 }
+@media screen and (max-width: 640px) {
+    #slide-wrapper{
+        width: 64%;
+    }
+}
 ```
 
 ## JavaScript
@@ -74,9 +79,12 @@ depend on jQuery
 ```javascript
 var slider = new SliderUnlock(element, options, success, always);
 slider.init();
+
+// element is required and right. id or class or any identifying which can be loaded by jquery.
+// if you dont want to give options, please give a null object, like this -- {}
 ```
 
-*如果需要支持移动端，请引入`jQuery mobile`*
+*If you need to support mobile，Please add `jQuery mobile` plugin：*
 ```
 <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
 ```

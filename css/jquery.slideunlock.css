@@ -45,6 +45,11 @@ body{
 
 @media screen and (max-width: 640px) {
     #slide-wrapper{
-        width: 200px;
+        width: 64%;
     }
+}
+
+p{
+    padding: 0 10px;
+    word-wrap: break-word;
 }
