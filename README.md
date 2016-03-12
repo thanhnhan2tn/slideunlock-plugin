@@ -1,5 +1,7 @@
 # jquery-slideunlock-plugin
 
+![图片](http://7xrgqs.com1.z0.glb.clouddn.com/jquery-slideunlock-plugin.png)
+
 ## html
 ```html
 <div id="slide-wrapper">
