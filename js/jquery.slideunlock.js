@@ -71,7 +71,7 @@ SliderUnlock.prototype.init = function () {
         _self.handerOut();
     }).on("touchstart", function (event) {
         var e = event || window.event;
-        _self.lableIndex = e.originalEvent.pageX - this.offsetLeft;
+        _self.lableIndex = e.originalEvent.touches[0].pageX - this.offsetLeft;
         _self.handerIn();
     }).on("touchmove", function (event) {
         _self.handerMove(event, "mobile");
@@ -106,7 +106,7 @@ SliderUnlock.prototype.handerMove = function (event, type) {
         event.preventDefault();
         var event = event || window.event;
         if (type == "mobile") {
-            _self.index = event.originalEvent.pageX - _self.lableIndex;
+            _self.index = event.originalEvent.touches[0].pageX - _self.lableIndex;
         } else {
             _self.index = event.clientX - _self.lableIndex;
         }
