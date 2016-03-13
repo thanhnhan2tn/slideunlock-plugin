@@ -4,25 +4,25 @@
 
 ## html
 ```html
-<div id="slide-wrapper">
-    <input type="hidden" value="" id="lockable"/>
-    <div id="slider">
-        <span id="label"></span>
-        <span id="lableTip">Slide to confirm I am human!</span>
+<div class="slideunlock-wrapper">
+    <input type="hidden" value="" class="slideunlock-lockable"/>
+    <div class="slideunlock-slider">
+        <span class="slideunlock-label"></span>
+        <span class="slideunlock-lable-tip">Slide to unlock!</span>
     </div>
 </div>
 ```
 
 ## css
 ```css
-#slide-wrapper{
+.slideunlock-wrapper{
     width: 360px;
     position: relative;
     padding: 50px;
     background: #ECF0F1;
     margin: 0 auto;
 }
-#slider{
+.slideunlock-slider{
     padding:20px;
     position: relative;
     border-radius: 2px;
@@ -30,10 +30,10 @@
     overflow: hidden;
     text-align: center;
 }
-#slider.success{
+.slideunlock-slider.success{
     background-color: #E5EE9F;
 }
-#label{
+.slideunlock-label{
     width: 40px;
     position: absolute;
     left: 0;
@@ -41,13 +41,14 @@
     height: 100%;
     background: #E67E22;
     z-index: 999;
+    border-radius: 2px;
     cursor: pointer;
 }
-#labelTip{
+.slideunlock-label-tip{
     z-index: 9;
 }
 @media screen and (max-width: 640px) {
-    #slide-wrapper{
+    .slideunlock-wrapper{
         width: 64%;
     }
 }
@@ -60,14 +61,14 @@ depend on jQuery
 <script type="text/javascript" src="js/jquery.slideunlock.min.js"></script>
 <script type="text/javascript">
     $(function () {
-        var slider = new SliderUnlock("#slider", {
+        var slider = new SliderUnlock(".slideunlock-slider", {
             labelTip: "滑动解锁",
             successLabelTip: "解锁成功",
             duration: 200   // 动画效果执行时间，默认200ms
         }, function(){
             alert('success');
         }, function(){
-            $(".warn").text("index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + $("#lockable").val() + " date:" + new Date().getUTCDate());
+            $(".warn").text("index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + $(".slideunlock-lockable").val() + " date:" + new Date().getUTCDate());
         });
         slider.init();
 
