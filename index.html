@@ -12,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.slideunlock.css">
 </head>
 <body>
-    <div id="slide-wrapper">
-        <input type="hidden" value="" id="lockable"/>
-        <div id="slider">
-            <span id="label"></span>
-            <span id="lableTip">Slide to unlock!</span>
+    <div class="slideunlock-wrapper">
+        <input type="hidden" value="" class="slideunlock-lockable"/>
+        <div class="slideunlock-slider">
+            <span class="slideunlock-label"></span>
+            <span class="slideunlock-lable-tip">Slide to unlock!</span>
         </div>
     </div>
     <button id="reset-btn">重置</button>
@@ -24,13 +24,13 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
-    <script type="text/javascript" src="js/jquery.slideunlock.min.js"></script>
+    <script type="text/javascript" src="js/jquery.slideunlock.js"></script>
     <script type="text/javascript">
     $(function () {
-        var slider = new SliderUnlock("#slider", {}, function(){
+        var slider = new SliderUnlock(".slideunlock-slider", {}, function(){
             alert('success');
         }, function(){
-            $(".warn").text("index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + $("#lockable").val() + " date:" + new Date().getUTCDate());
+            $(".warn").text("index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + $(".slideunlock-lockable").val() + " date:" + new Date().getUTCDate());
         });
         slider.init();
 

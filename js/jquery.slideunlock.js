@@ -82,7 +82,7 @@ SliderUnlock.prototype.init = function () {
     var _self = this;
 
     _self.updateView();
-    _self.elm.find("#label").on("mousedown", function (event) {
+    _self.elm.find(".slideunlock-label").on("mousedown", function (event) {
         var e = event || window.event;
         _self.lableIndex = e.clientX - this.offsetLeft;
         _self.handerIn();
@@ -164,16 +164,16 @@ SliderUnlock.prototype.reset = function () {
     var _self = this;
 
     _self.index = 0;
-    _self.elm.find("#label").animate({left: _self.index}, _self.opts.duration)
-        .next("#lableTip").animate({opacity: 1}, _self.opts.duration);
+    _self.elm.find(".slideunlock-label").animate({left: _self.index}, _self.opts.duration)
+        .next(".slideunlock-lable-tip").animate({opacity: 1}, _self.opts.duration);
     _self.updateView();
 };
 
 // 颜色渐变
 SliderUnlock.prototype.backgroundTranslate = function () {
     var _self = this;
-    _self.elm.find("#label").css("left", _self.index + "px")
-        .next('#lableTip').css("opacity", 1-(parseInt($("#label").css("left"))/_self.max));
+    _self.elm.find(".slideunlock-label").css("left", _self.index + "px")
+        .next('.slideunlock-lable-tip').css("opacity", 1-(parseInt($(".slideunlock-label").css("left"))/_self.max));
 }
 
 // 更新视图
@@ -181,17 +181,16 @@ SliderUnlock.prototype.updateView = function () {
   var _self = this;
 
     if (_self.index == (_self.max - 0)) {
-        $("#lockable").val(1);
-
+        $(".slideunlock-lockable").val(1);
         var style = {
             "filter": "alpha(opacity=1)",
             "-moz-opacity": "1",
             "opacity": "1"
         };
-        _self.elm.addClass("success").find("#lableTip").html(_self.opts.successLabelTip).css(style);
+        _self.elm.addClass("success").find(".slideunlock-lable-tip").html(_self.opts.successLabelTip).css(style);
     } else {
-        $("#lockable").val(0);
-        _self.elm.removeClass("success").find("#lableTip").html(_self.opts.labelTip);
+        $(".slideunlock-lockable").val(0);
+        _self.elm.removeClass("success").find(".slideunlock-lable-tip").html(_self.opts.labelTip);
     }
     _self.always();
 }

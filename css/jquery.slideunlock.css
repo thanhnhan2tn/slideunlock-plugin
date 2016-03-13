@@ -7,14 +7,14 @@ body{
     padding: 50px 0;
 }
 
-#slide-wrapper{
+.slideunlock-wrapper{
     width: 360px;
     position: relative;
     padding: 50px;
     background: #ECF0F1;
     margin: 0 auto;
 }
-#slider{
+.slideunlock-slider{
     padding:20px;
     position: relative;
     border-radius: 2px;
@@ -22,10 +22,10 @@ body{
     overflow: hidden;
     text-align: center;
 }
-#slider.success{
+.slideunlock-slider.success{
     background-color: #E5EE9F;
 }
-#label{
+.slideunlock-label{
     width: 40px;
     position: absolute;
     left: 0;
@@ -33,20 +33,20 @@ body{
     height: 100%;
     background: #E67E22;
     z-index: 999;
+    border-radius: 2px;
     cursor: pointer;
 }
-#labelTip{
+.slideunlock-label-tip{
     z-index: 9;
+}
+@media screen and (max-width: 640px) {
+    .slideunlock-wrapper{
+        width: 64%;
+    }
 }
 
 #reset-btn{
     margin: 20px 0 10px 0;
-}
-
-@media screen and (max-width: 640px) {
-    #slide-wrapper{
-        width: 64%;
-    }
 }
 
 p{
