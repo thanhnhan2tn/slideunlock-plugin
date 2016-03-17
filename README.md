@@ -95,3 +95,8 @@ slider.init();
 ## Demo
 <p data-height="268" data-theme-id="0" data-slug-hash="bpeoEp" data-default-tab="result" data-user="ArronYR" class="codepen">See the Pen <a href="http://codepen.io/ArronYR/pen/bpeoEp/">jquery-slide-unlock</a> by Arron.y (<a href="http://codepen.io/ArronYR">@ArronYR</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+## About me
+
+文章地址：[详情](http://blog.helloarron.com/2016/03/17/javascript/jquery-slideunlock-plugin/)
+博客：[http://blog.helloarron.com](http://blog.helloarron.com)
