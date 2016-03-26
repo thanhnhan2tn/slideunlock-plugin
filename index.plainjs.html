@@ -22,22 +22,20 @@
     <button id="reset-btn">重置</button>
     <p class="warn"></p>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
-    <script type="text/javascript" src="js/jquery.slideunlock.js"></script>
+    <script type="text/javascript" src="js/slideunlock.js"></script>
     <script type="text/javascript">
-    $(function () {
+    window.onload = function () {
         var slider = new SliderUnlock(".slideunlock-slider", {}, function(){
             alert('success');
         }, function(){
-            $(".warn").text("index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + $(".slideunlock-lockable").val() + " date:" + new Date().getUTCDate());
+            document.querySelector(".warn").innerText = "index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + document.querySelector(".slideunlock-lockable").value + " date:" + new Date().getUTCDate();
         });
         slider.init();
 
-        $("#reset-btn").on('click', function(){
+        document.querySelector("#reset-btn").addEventListener('click', function(){
             slider.reset();
         });
-    })
+    }
     </script>
 </body>
 </html>
