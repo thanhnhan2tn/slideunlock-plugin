@@ -7,20 +7,24 @@
 
 'use strict'
 
+// get the element object
 function $(selector, context) {
     return (context || document).querySelectorAll(selector);
 }
 
+// add CSS sttributes to the dom element
 function css(el, styles) {
     for (var property in styles){
         el.style[property] = styles[property];
     }
 }
 
+// check the dom has someone class style
 function hasClass(el, className) {
     return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
 }
 
+// add class style
 function addClass(el, className) {
     if (el.classList) {
         el.classList.add(className);
@@ -29,6 +33,7 @@ function addClass(el, className) {
     }
 }
 
+// remove class style
 function removeClass(el, className) {
     if (el.classList) {
         el.classList.remove(className);
@@ -65,7 +70,7 @@ function animateOpacity(el, duration, opacity) {
     })();
 }
 
-// 滑动条对象
+// the main object SliderUnlock
 function SliderUnlock(elm, options, success, always) {
     var _self = this;
 
@@ -108,7 +113,7 @@ function SliderUnlock(elm, options, success, always) {
     _self.always = always;
 }
 
-// 检测元素是否存在
+// check the element exists
 SliderUnlock.prototype.checkElm = function (elm) {
     if($(elm).length > 0){
         return true;
@@ -117,7 +122,7 @@ SliderUnlock.prototype.checkElm = function (elm) {
     }
 };
 
-// 检测传入参数是否是对象
+// judge the given param is a object
 SliderUnlock.prototype.checkObj = function (obj) {
     if(typeof obj === "object"){
         return true;
@@ -126,7 +131,7 @@ SliderUnlock.prototype.checkObj = function (obj) {
     }
 };
 
-// 检测传入参数是否是function
+// judge the given param is a function
 SliderUnlock.prototype.checkFn = function (fn) {
     if(typeof fn === "function"){
         return true;
@@ -135,7 +140,7 @@ SliderUnlock.prototype.checkFn = function (fn) {
     }
 };
 
-//初始化
+// initialize
 SliderUnlock.prototype.init = function () {
     var _self = this,
         _slideunlockLabel = $(".slideunlock-label")[0];
@@ -243,7 +248,7 @@ SliderUnlock.prototype.backgroundTranslate = function () {
     $('.slideunlock-lable-tip')[0].style.opacity = 1-(parseInt($(".slideunlock-label")[0].style.left)/_self.max);
 }
 
-// 更新视图
+// update the dom
 SliderUnlock.prototype.updateView = function () {
     var _self = this,
         _labelTipEle = $(".slideunlock-lable-tip")[0];
