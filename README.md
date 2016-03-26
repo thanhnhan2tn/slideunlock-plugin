@@ -1,4 +1,4 @@
-# jquery-slideunlock-plugin
+# slideunlock-plugin
 
 ![图片](http://7xrgqs.com1.z0.glb.clouddn.com/jquery-slideunlock-plugin.png)
 
@@ -55,7 +55,26 @@
 ```
 
 ## JavaScript
-depend on jQuery
+independent of jQuery. See the [demo](https://github.com/ArronYR/slideunlock-plugin/blob/master/index.plainjs.html)
+```javascript
+<script type="text/javascript" src="js/slideunlock.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var slider = new SliderUnlock(".slideunlock-slider", {}, function(){
+            alert('success');
+        }, function(){
+            document.querySelector(".warn").innerText = "index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + document.querySelector(".slideunlock-lockable").value + " date:" + new Date().getUTCDate();
+        });
+        slider.init();
+
+        document.querySelector("#reset-btn").addEventListener('click', function(){
+            slider.reset();
+        });
+    }
+</script>
+```
+
+depend on jQuery. See the [demo](https://github.com/ArronYR/slideunlock-plugin/blob/master/index.html)
 ```javascript
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.slideunlock.min.js"></script>
