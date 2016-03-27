@@ -57,7 +57,7 @@
 ## JavaScript
 independent of jQuery. See the [demo](https://github.com/ArronYR/slideunlock-plugin/blob/master/index.plainjs.html)
 ```javascript
-<script type="text/javascript" src="js/slideunlock.js"></script>
+<script type="text/javascript" src="js/slideunlock.min.js"></script>
 <script type="text/javascript">
     window.onload = function () {
         var slider = new SliderUnlock(".slideunlock-slider", {}, function(){
