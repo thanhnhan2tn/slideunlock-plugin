@@ -14,6 +14,9 @@
 ```
 
 ## css
+
+在这个案例中，只是简单设置了滑块和容器的简单样式，可根据需求自定义`css`或者图片等。
+
 ```css
 .slideunlock-wrapper{
     width: 360px;
