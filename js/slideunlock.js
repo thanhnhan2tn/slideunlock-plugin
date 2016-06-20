@@ -19,10 +19,10 @@ function $(selector, context) {
 //     }
 // }
 
-//just replace the css function that you write, it has a bug, if the styles has not only a css property
+//just replace the css function that you write, it has a bug, if the styles has a css like "margin-left", the "-" signal will be error in style[*]
 function css(el, styles) {
-    for(var i = 0; i< styles.length; i++){
-        el.style[i] = styles[i];
+    for (var property in styles){
+        el.style[property.toString()] = styles[property];
     }
 }
 
