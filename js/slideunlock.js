@@ -12,10 +12,17 @@ function $(selector, context) {
     return (context || document).querySelectorAll(selector);
 }
 
-// add CSS sttributes to the dom element
+// // add CSS sttributes to the dom element
+// function css(el, styles) {
+//     for (var property in styles){
+//         el.style[property] = styles[property];
+//     }
+// }
+
+//just replace the css function that you write, it has a bug, if the styles has a css like "margin-left", the "-" signal will be error in style[*]
 function css(el, styles) {
     for (var property in styles){
-        el.style[property] = styles[property];
+        el.style[property.toString()] = styles[property];
     }
 }
 
