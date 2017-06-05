@@ -66,7 +66,11 @@ independent of jQuery. See the [demo](https://github.com/ArronYR/slideunlock-plu
         var slider = new SliderUnlock(".slideunlock-slider", {}, function(){
             alert('success');
         }, function(){
-            document.querySelector(".warn").innerText = "index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + document.querySelector(".slideunlock-lockable").value + " date:" + new Date().getUTCDate();
+            document.querySelector(".warn").innerText = "index:" + slider.index +
+                    ", max:" + slider.max +
+                    ", lableIndex:" + slider.lableIndex +
+                    ", value:" + document.querySelector(".slideunlock-lockable").value +
+                    ", date:" + new Date().getUTCDate();
         });
         slider.init();
 
@@ -90,7 +94,11 @@ depend on jQuery. See the [demo](https://github.com/ArronYR/slideunlock-plugin/b
         }, function(){
             alert('success');
         }, function(){
-            $(".warn").text("index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + $(".slideunlock-lockable").val() + " date:" + new Date().getUTCDate());
+            $(".warn").text("index:" + slider.index +
+                    ", max:" + slider.max +
+                    ", lableIndex:" + slider.lableIndex +
+                    ", value:" + $(".slideunlock-lockable").val() +
+                    ", date:" + new Date().getUTCDate());
         });
         slider.init();
 
