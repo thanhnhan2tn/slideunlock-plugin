@@ -1,9 +1,9 @@
 /**
-* Author: Arron.y
-* Email: yangyun4814@gmail.com
-* Github: https://github.com/ArronYR
-* CreateTime: 2016-03-26
-*/
+ * Author: Arron.y
+ * Email: yangyun4814@gmail.com
+ * Github: https://github.com/ArronYR
+ * CreateTime: 2016-03-26
+ */
 
 'use strict'
 
@@ -14,14 +14,14 @@ function $(selector, context) {
 
 // add CSS sttributes to the dom element
 function css(el, styles) {
-    for (var property in styles){
+    for (var property in styles) {
         el.style[property] = styles[property];
     }
 }
 
 // check the dom has someone class style
 function hasClass(el, className) {
-    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+    return el.classList ? el.classList.contains(className) : new RegExp('\\b' + className + '\\b').test(el.className);
 }
 
 // add class style
@@ -38,14 +38,14 @@ function removeClass(el, className) {
     if (el.classList) {
         el.classList.remove(className);
     } else {
-        el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
+        el.className = el.className.replace(new RegExp('\\b' + className + '\\b', 'g'), '');
     }
 }
 
 // helper for enabling IE 8 event bindings
 function addEvent(el, type, handler) {
     if (el.attachEvent) {
-        el.attachEvent('on'+type, handler);
+        el.attachEvent('on' + type, handler);
     } else {
         el.addEventListener(type, handler);
     }
@@ -53,20 +53,22 @@ function addEvent(el, type, handler) {
 
 // animate to left
 function animateLeft(el, duration, left) {
-    var s = el.style, step = (duration || 200)/20;
+    var s = el.style,
+        step = (duration || 200) / 20;
     s.left = s.left || '0px';
     (function animation() {
-        s.left = (parseInt(s.left, 10)-step) > 0 ? (parseInt(s.left, 10)-step)+'px' : 0;
+        s.left = (parseInt(s.left, 10) - step) > 0 ? (parseInt(s.left, 10) - step) + 'px' : 0;
         parseInt(s.left, 10) > 0 ? setTimeout(animation, 10) : s.left = 0;
     })();
 }
 
 // animate opacity
 function animateOpacity(el, duration, opacity) {
-    var s = el.style, step = 25/(duration || 200);
+    var s = el.style,
+        step = 25 / (duration || 200);
     s.opacity = s.opacity || 0;
     (function animation() {
-        (s.opacity = parseFloat(s.opacity)+step) > 1 ? s.opacity = 1 : setTimeout(animation, 25);
+        (s.opacity = parseFloat(s.opacity) + step) > 1 ? s.opacity = 1 : setTimeout(animation, 25);
     })();
 }
 
@@ -76,36 +78,36 @@ function SliderUnlock(elm, options, success, always) {
 
     var $elm = _self.checkElm(elm) ? $(elm)[0] : document;
     var options = _self.checkObj(options) ? options : new Object();
-    var success = _self.checkFn(success) ? success : function(){};
-    var always = _self.checkFn(always) ? always : function(){};
+    var success = _self.checkFn(success) ? success : function () {};
+    var always = _self.checkFn(always) ? always : function () {};
 
     var opts = {
-        labelTip: typeof(options.labelTip)!=="undefined" ? options.labelTip : "Slide to Unlock",
-        successLabelTip: typeof(options.successLabelTip)!=='undefined' ? options.successLabelTip : "Success",
-        duration: typeof(options.duration)!=='undefined'||!isNaN(options.duration) ? options.duration : 200,
-        swipestart: typeof(options.swipestart)!=='undefined' ? options.swipestart : false,
-        min: typeof(options.min)!=='undefined'||!isNaN(options.min) ? options.min : 0,
-        max: typeof(options.max)!=='undefined'||!isNaN(options.max) ? options.max : $elm.clientWidth-$(".slideunlock-label")[0].clientWidth,
-        index: typeof(options.index)!=='undefined'||!isNaN(options.index) ? options.index : 0,
-        IsOk: typeof(options.isOk)!=='undefined' ? options.isOk : false,
-        lableIndex: typeof(options.lableIndex)!=='undefined'||!isNaN(options.lableIndex) ? options.lableIndex : 0
+        labelTip: typeof (options.labelTip) !== "undefined" ? options.labelTip : "Slide to Unlock",
+        successLabelTip: typeof (options.successLabelTip) !== 'undefined' ? options.successLabelTip : "Success",
+        duration: typeof (options.duration) !== 'undefined' || !isNaN(options.duration) ? options.duration : 200,
+        swipestart: typeof (options.swipestart) !== 'undefined' ? options.swipestart : false,
+        min: typeof (options.min) !== 'undefined' || !isNaN(options.min) ? options.min : 0,
+        max: typeof (options.max) !== 'undefined' || !isNaN(options.max) ? options.max : $elm.clientWidth - $(".slideunlock-label")[0].clientWidth,
+        index: typeof (options.index) !== 'undefined' || !isNaN(options.index) ? options.index : 0,
+        IsOk: typeof (options.isOk) !== 'undefined' ? options.isOk : false,
+        lableIndex: typeof (options.lableIndex) !== 'undefined' || !isNaN(options.lableIndex) ? options.lableIndex : 0
     }
 
     //$elm
     _self.elm = $elm;
     //opts
     _self.opts = opts;
-    //是否开始滑动
+    //是否开始滑动 (Whether to start sliding)
     _self.swipestart = opts.swipestart;
-    //最小值
+    //最小值 (Minimum value)
     _self.min = opts.min;
-    //最大值
+    //最大值 (Maximum value)
     _self.max = opts.max;
-    //当前滑动条所处的位置
+    //当前滑动条所处的位置 (The location of the current slider)
     _self.index = opts.index;
-    //是否滑动成功
+    //是否滑动成功 (Whether the slide is successful)
     _self.isOk = opts.isOk;
-    //鼠标在滑动按钮的位置
+    //鼠标在滑动按钮的位置 (The mouse is in the position of the sliding button)
     _self.lableIndex = opts.lableIndex;
     //success
     _self.success = success;
@@ -115,27 +117,27 @@ function SliderUnlock(elm, options, success, always) {
 
 // check the element exists
 SliderUnlock.prototype.checkElm = function (elm) {
-    if($(elm).length > 0){
+    if ($(elm).length > 0) {
         return true;
-    }else{
+    } else {
         throw "this element does not exist.";
     }
 };
 
 // judge the given param is a object
 SliderUnlock.prototype.checkObj = function (obj) {
-    if(typeof obj === "object"){
+    if (typeof obj === "object") {
         return true;
-    }else{
+    } else {
         throw "the params is not a object.";
     }
 };
 
 // judge the given param is a function
 SliderUnlock.prototype.checkFn = function (fn) {
-    if(typeof fn === "function"){
+    if (typeof fn === "function") {
         return true;
-    }else{
+    } else {
         throw "the param is not a function.";
     }
 };
@@ -174,7 +176,10 @@ SliderUnlock.prototype.init = function () {
     });
 }
 
-// 鼠标/手指接触滑动按钮
+/**
+ * 鼠标 /手指接触滑动按钮
+ * Mouse / finger touch slide button
+ */
 SliderUnlock.prototype.handerIn = function () {
     var _self = this;
     _self.swipestart = true;
@@ -182,18 +187,24 @@ SliderUnlock.prototype.handerIn = function () {
     _self.max = _self.elm.clientWidth - $(".slideunlock-label")[0].clientWidth;
 }
 
-// 鼠标/手指移出
+/**
+ * 鼠标 /手指移出
+ * Mouse / finger out
+ */
 SliderUnlock.prototype.handerOut = function () {
     var _self = this;
-    //停止
+    // stop
     _self.swipestart = false;
-    //_self.move();
+    // _self.move();
     if (_self.index < _self.max) {
         _self.reset();
     }
 }
 
-//鼠标/手指移动
+/**
+ * 鼠标 /手指移动
+ * Mouse / finger move
+ */
 SliderUnlock.prototype.handerMove = function (event, type) {
     var _self = this;
     if (_self.swipestart) {
@@ -208,19 +219,22 @@ SliderUnlock.prototype.handerMove = function (event, type) {
     }
 }
 
-//鼠标/手指移动过程
+/**
+ * 鼠标 /手指移动过程
+ * Mouse / finger movement process
+ */
 SliderUnlock.prototype.move = function () {
     var _self = this;
     if ((_self.index + 0) >= _self.max) {
         _self.index = _self.max - 0;
-        //停止
+        // 停止 (stop)
         _self.swipestart = false;
-        //解锁
+        // 解锁 (lock)
         _self.isOk = true;
     }
     if (_self.index < 0) {
         _self.index = _self.min;
-        //未解锁
+        // 未解锁 (unlock)
         _self.isOk = false;
     }
     if (_self.index == _self.max && _self.max > 0 && _self.isOk) {
@@ -230,7 +244,10 @@ SliderUnlock.prototype.move = function () {
     _self.updateView();
 }
 
-// 重置slide的起点
+/**
+ * 重置slide的起点
+ * Resets the starting point of the slide
+ */
 SliderUnlock.prototype.reset = function () {
     var _self = this;
 
@@ -241,14 +258,20 @@ SliderUnlock.prototype.reset = function () {
     _self.updateView();
 };
 
-// 颜色渐变
+/**
+ * 背景颜色渐变
+ * Background color gradient
+ */
 SliderUnlock.prototype.backgroundTranslate = function () {
     var _self = this;
     $(".slideunlock-label")[0].style.left = _self.index + "px";
-    $('.slideunlock-lable-tip')[0].style.opacity = 1-(parseInt($(".slideunlock-label")[0].style.left)/_self.max);
+    $('.slideunlock-lable-tip')[0].style.opacity = 1 - (parseInt($(".slideunlock-label")[0].style.left) / _self.max);
 }
 
-// update the dom
+/**
+ * 更新视图
+ * Update the view
+ */
 SliderUnlock.prototype.updateView = function () {
     var _self = this,
         _labelTipEle = $(".slideunlock-lable-tip")[0];

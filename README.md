@@ -15,7 +15,7 @@
 
 ## css
 
-在这个案例中，只是简单设置了滑块和容器的样式，可根据需求自定义`css`或者图片等。
+In this case, just set the slider and container style, according to the needs of custom css or pictures, etc.
 
 ```css
 .slideunlock-wrapper{
@@ -120,6 +120,6 @@ slider.init();
 
 ## About me
 
-文章地址：[详情](http://blog.helloarron.com/2016/03/17/javascript/jquery-slideunlock-plugin/)
+Article：[SlideUnlock-Plugin](http://blog.helloarron.com/2016/03/17/javascript/jquery-slideunlock-plugin/)
 
-博客：[http://blog.helloarron.com](http://blog.helloarron.com)
+Blog：[http://blog.helloarron.com](http://blog.helloarron.com)

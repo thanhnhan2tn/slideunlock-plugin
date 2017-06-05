@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Slide Unlock</title>
@@ -11,31 +12,37 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/slideunlock.css">
 </head>
+
 <body>
     <div class="slideunlock-wrapper">
-        <input type="hidden" value="" class="slideunlock-lockable"/>
+        <input type="hidden" value="" class="slideunlock-lockable" />
         <div class="slideunlock-slider">
             <span class="slideunlock-label"></span>
             <span class="slideunlock-lable-tip">Slide to unlock!</span>
         </div>
     </div>
-    <button id="reset-btn">重置</button>
+    <button id="reset-btn">Reset</button>
     <p class="warn"></p>
 
     <script type="text/javascript" src="js/slideunlock.js"></script>
     <script type="text/javascript">
-    window.onload = function () {
-        var slider = new SliderUnlock(".slideunlock-slider", {}, function(){
-            alert('success');
-        }, function(){
-            document.querySelector(".warn").innerText = "index:" + slider.index + "， max:" + slider.max + ",lableIndex:" + slider.lableIndex + ",value:" + document.querySelector(".slideunlock-lockable").value + " date:" + new Date().getUTCDate();
-        });
-        slider.init();
+        window.onload = function () {
+            var slider = new SliderUnlock(".slideunlock-slider", {}, function () {
+                alert('success');
+            }, function () {
+                document.querySelector(".warn").innerText = "index:" + slider.index +
+                    ", max:" + slider.max +
+                    ", lableIndex:" + slider.lableIndex +
+                    ", value:" + document.querySelector(".slideunlock-lockable").value +
+                    ", date:" + new Date().getUTCDate();
+            });
+            slider.init();
 
-        document.querySelector("#reset-btn").addEventListener('click', function(){
-            slider.reset();
-        });
-    }
+            document.querySelector("#reset-btn").addEventListener('click', function () {
+                slider.reset();
+            });
+        }
     </script>
 </body>
+
 </html>
