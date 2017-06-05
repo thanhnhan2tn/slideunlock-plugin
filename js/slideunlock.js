@@ -19,6 +19,13 @@ function css(el, styles) {
     }
 }
 
+//just replace the css function that you write, it has a bug, if the styles has a css like "margin-left", the "-" signal will be error in style[*]
+function css(el, styles) {
+    for (var property in styles) {
+        el.style[property.toString()] = styles[property];
+    }
+}
+
 // check the dom has someone class style
 function hasClass(el, className) {
     return el.classList ? el.classList.contains(className) : new RegExp('\\b' + className + '\\b').test(el.className);
