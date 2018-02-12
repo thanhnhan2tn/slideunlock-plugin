@@ -1,6 +1,11 @@
 # slideunlock-plugin
 
 ![图片](http://7xrgqs.com1.z0.glb.clouddn.com/jquery-slideunlock-plugin.png)
+## Using npm package
+
+```
+npm install --save slideunlock
+```
 
 ## html
 ```html

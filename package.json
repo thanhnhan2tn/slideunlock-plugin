@@ -1,0 +1,23 @@
+{
+  "name": "slideunlock",
+  "version": "1.0.0",
+  "description": "The slide to unlock plugin",
+  "main": "js/slideunlock.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhnhan2tn/slideunlock-plugin.git"
+  },
+  "keywords": [
+    "jquery",
+    "slideunlock"
+  ],
+  "author": "Thanh Nhan <thanhnhan2tn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thanhnhan2tn/slideunlock-plugin/issues"
+  },
+  "homepage": "https://github.com/thanhnhan2tn/slideunlock-plugin#readme"
+}
